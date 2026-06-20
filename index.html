@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Doctor Appointment System</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <header>
+
+    <h1>Doctor Appointment System</h1>
+
+    <p>Book appointment via WhatsApp instantly</p>
+
+  </header>
+
+  <div class="card">
+
+    <h2>Book Appointment</h2>
+
+    <input type="text" id="name" placeholder="Patient Name">
+
+    <input type="text" id="phone" placeholder="Your Phone Number">
+
+    <input type="date" id="date">
+
+    <input type="time" id="time">
+
+    <select id="doctor">
+
+      <option value="919164167886">Mohammed Thousif</option>
+
+      <option value="917892846453">Faizan Rasheed</option>
+
+      <option value="919380578007">Aboobaquer Sanad</option>
+
+      <option value="918296759158">Sheikh Afil H</option>
+
+      <option value="917353026836">Ruvez Abdul Rehman</option>
+
+    </select>
+
+    <textarea id="reason" placeholder="Reason for visit"></textarea>
+
+    <button onclick="bookAppointment()">Book on WhatsApp</button>
+
+  </div>
+
+</div>
+
+<script>
+
+function bookAppointment() {
+
+  let name = document.getElementById("name").value;
+
+  let phone = document.getElementById("phone").value;
+
+  let date = document.getElementById("date").value;
+
+  let time = document.getElementById("time").value;
+
+  let doctor = document.getElementById("doctor").value;
+
+  let reason = document.getElementById("reason").value;
+
+  let message =
+
+`Hello Doctor,
+
+I want to book an appointment.
+
+Patient Name: ${name}
+
+Phone: ${phone}
+
+Date: ${date}
+
+Time: ${time}
+
+Reason: ${reason}`;
+
+  let url = "https://wa.me/" + doctor + "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+
+}
+
+</script>
+
+</body>
+
+</html>
